@@ -6,3 +6,9 @@
 - 项目使用了UniTask作为异步框架
 - 只进行里面的代码整合，几乎没有其他冗余代码
 - 尚未添加其他工具
+## 重点文件
+- [Assets/AOTScripts](Assets/AOTScripts) AOT代码
+- [HotUpdateScripts](Assets/HotUpdateScripts) 热更新代码
+- [HotUpdateConfig.asset](Assets/Resources/HotUpdateConfig.asset) 热更新配置
+- [AOTGenericReferences.cs](Assets/HybridCLRGenerate/AOTGenericReferences.cs) 补元DLL列表
+- [FsmInitializePackage.cs](Assets/AOTScripts/MainRoot/PatchLogic/FsmNode/FsmInitializePackage.cs) 热更新初始化服务器地址与解密配置
