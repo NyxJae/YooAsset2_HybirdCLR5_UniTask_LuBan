@@ -1,0 +1,65 @@
+{
+    "FileVersion": "2.0.0",
+    "EnableAddressable": true,
+    "LocationToLower": false,
+    "IncludeAssetGUID": false,
+    "OutputNameStyle": 0,
+    "BuildPipeline": "RawFileBuildPipeline",
+    "PackageName": "RawFilePackage",
+    "PackageVersion": "V1.0.0",
+    "AssetList": [
+        {
+            "Address": "mscorlib.dll",
+            "AssetPath": "Assets/HotUpdateAssets/AssembliesPostIl2CppStrip/mscorlib.dll.bytes",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 0
+        },
+        {
+            "Address": "Assembly-CSharp.dll",
+            "AssetPath": "Assets/HotUpdateAssets/HotUpdateDlls/Assembly-CSharp.dll.bytes",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 1
+        },
+        {
+            "Address": "HotUpdate.dll",
+            "AssetPath": "Assets/HotUpdateAssets/HotUpdateDlls/HotUpdate.dll.bytes",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 2
+        }
+    ],
+    "BundleList": [
+        {
+            "BundleName": "rawfilepackage_assets_hotupdateassets_assembliespostil2cppstrip_mscorlib_dll_bytes.rawfile",
+            "UnityCRC": 0,
+            "FileHash": "c09b38a6686b42950cacbdc69bf2bce9",
+            "FileCRC": "00000000",
+            "FileSize": 1878016,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": []
+        },
+        {
+            "BundleName": "rawfilepackage_assets_hotupdateassets_hotupdatedlls_assembly-csharp_dll_bytes.rawfile",
+            "UnityCRC": 0,
+            "FileHash": "c4b322d129112813739d57a92916649f",
+            "FileCRC": "00000000",
+            "FileSize": 5120,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": []
+        },
+        {
+            "BundleName": "rawfilepackage_assets_hotupdateassets_hotupdatedlls_hotupdate_dll_bytes.rawfile",
+            "UnityCRC": 0,
+            "FileHash": "154f599f260994d14e9e27e7d6a9b89d",
+            "FileCRC": "00000000",
+            "FileSize": 5120,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": []
+        }
+    ]
+}
