@@ -11,11 +11,6 @@ public class HotUpdateConfig : ScriptableObject
     [Header("默认的资源包名")] [Tooltip("默认的资源包名")]
     public string defaultPackageName = "DefaultPackage";
 
-    /// <summary>
-    ///     原生资源包名
-    /// </summary>
-    [Header("热更原生资源包名")] [Tooltip("热更原生资源包名")]
-    public string rawPackageName = "RawFilePackage";
 
     /// <summary>
     ///     资源系统运行模式

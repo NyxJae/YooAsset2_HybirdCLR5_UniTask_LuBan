@@ -36,14 +36,10 @@ public class FsmCreatePackageDownloader : IStateNode
     {
         var defaultPackageName = (string)_machine.GetBlackboardValue("DefaultPackageName");
         var defaultPackage = YooAssets.GetPackage(defaultPackageName);
-        var rawPackageName = (string)_machine.GetBlackboardValue("RawPackageName");
-        var rawPackage = YooAssets.GetPackage(rawPackageName);
         var downloadingMaxNum = 10;
         var failedTryAgain = 3;
         var downloader = defaultPackage.CreateResourceDownloader(downloadingMaxNum, failedTryAgain);
-        var rawDownloader = rawPackage.CreateResourceDownloader(downloadingMaxNum, failedTryAgain);
         _machine.SetBlackboardValue("Downloader", downloader);
-        _machine.SetBlackboardValue("RawDownloader", rawDownloader);
 
         if (downloader.TotalDownloadCount == 0)
         {
