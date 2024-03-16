@@ -12,3 +12,4 @@
 - [HotUpdateConfig.asset](Assets/Resources/HotUpdateConfig.asset) 热更新配置
 - [AOTGenericReferences.cs](Assets/HybridCLRGenerate/AOTGenericReferences.cs) 补元DLL列表
 - [FsmInitializePackage.cs](Assets/AOTScripts/MainRoot/PatchLogic/FsmNode/FsmInitializePackage.cs) 热更新初始化服务器地址与解密配置
+- [Test.cs](Assets%2FHotUpdateScripts%2FTestTools%2FTest.cs)测试代码
