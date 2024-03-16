@@ -37,27 +37,17 @@ internal class FsmUpdatePackageVersion : IStateNode
         var defaultPackageName = (string)_machine.GetBlackboardValue("DefaultPackageName");
         var defaultPackage = YooAssets.GetPackage(defaultPackageName);
         var operation = defaultPackage.UpdatePackageVersionAsync();
-        var rawPackageName = (string)_machine.GetBlackboardValue("RawPackageName");
-        var rawPackage = YooAssets.GetPackage(rawPackageName);
-        var rawOperation = rawPackage.UpdatePackageVersionAsync();
         // 等待异步操作完成
         await UniTask.WaitUntil(() => operation.IsDone);
-        await UniTask.WaitUntil(() => rawOperation.IsDone);
 
         if (operation.Status != EOperationStatus.Succeed)
         {
             Debug.LogWarning(operation.Error);
             PatchEventDefine.PackageVersionUpdateFailed.SendEventMessage();
         }
-        else if (rawOperation.Status != EOperationStatus.Succeed)
-        {
-            Debug.LogWarning(rawOperation.Error);
-            PatchEventDefine.PackageVersionUpdateFailed.SendEventMessage();
-        }
-        else
+
         {
             _machine.SetBlackboardValue("DefaultPackageVersion", operation.PackageVersion);
-            _machine.SetBlackboardValue("RawPackageVersion", rawOperation.PackageVersion);
             _machine.ChangeState<FsmUpdatePackageManifest>();
         }
     }

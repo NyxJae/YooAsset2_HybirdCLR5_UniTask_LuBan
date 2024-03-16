@@ -38,7 +38,7 @@ public class FsmTest : IStateNode
 
         var handle = package?.LoadAssetAsync<GameObject>(location);
         await handle.ToUniTask();
-        var obj = handle.InstantiateAsync();
+        var obj = handle?.InstantiateAsync();
         _machine.ChangeState<FsmClearPackageCache>();
     }
 }

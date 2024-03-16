@@ -42,21 +42,12 @@ public class FsmUpdatePackageManifest : IStateNode
         var defaultPackage = YooAssets.GetPackage(defaultPackageName);
         var savePackageVersion = true;
         var defaultOperation = defaultPackage.UpdatePackageManifestAsync(defaultPackageVersion, savePackageVersion);
-        var rawPackageName = (string)_machine.GetBlackboardValue("RawPackageName");
-        var rawPackageVersion = (string)_machine.GetBlackboardValue("RawPackageVersion");
-        var rawPackage = YooAssets.GetPackage(rawPackageName);
-        var rawOperation = rawPackage.UpdatePackageManifestAsync(rawPackageVersion, savePackageVersion);
         // 等待异步操作完成
         await UniTask.WaitUntil(() => defaultOperation.IsDone);
 
         if (defaultOperation.Status != EOperationStatus.Succeed)
         {
             Debug.LogWarning(defaultOperation.Error);
-            PatchEventDefine.PatchManifestUpdateFailed.SendEventMessage();
-        }
-        else if (rawOperation.Status != EOperationStatus.Succeed)
-        {
-            Debug.LogWarning(rawOperation.Error);
             PatchEventDefine.PatchManifestUpdateFailed.SendEventMessage();
         }
         else

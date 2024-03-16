@@ -37,14 +37,6 @@ MonoBehaviour:
         FilterRuleName: CollectAll
         AssetTags: 
         UserData: 
-  - PackageName: RawFilePackage
-    PackageDesc: "\u539F\u751F\u6587\u4EF6\u5305"
-    EnableAddressable: 1
-    LocationToLower: 0
-    IncludeAssetGUID: 0
-    IgnoreDefaultType: 0
-    AutoCollectShaders: 1
-    Groups:
     - GroupName: HotUpdateDlls
       GroupDesc: "\u70ED\u66F4\u65B0Dlls"
       AssetTags: 
@@ -54,7 +46,7 @@ MonoBehaviour:
         CollectorGUID: 7e196e8d064552642be05ef34a60fa5c
         CollectorType: 0
         AddressRuleName: AddressByFileName
-        PackRuleName: PackRawFile
+        PackRuleName: PackDirectory
         FilterRuleName: CollectAll
         AssetTags: 
         UserData: 
@@ -62,7 +54,7 @@ MonoBehaviour:
         CollectorGUID: c53107193f4af584cabf23fee9dc14f9
         CollectorType: 0
         AddressRuleName: AddressByFileName
-        PackRuleName: PackRawFile
+        PackRuleName: PackDirectory
         FilterRuleName: CollectAll
         AssetTags: 
         UserData: 

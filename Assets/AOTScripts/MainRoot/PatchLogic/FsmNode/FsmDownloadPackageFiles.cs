@@ -39,15 +39,9 @@ public class FsmDownloadPackageFiles : IStateNode
         downloader.BeginDownload();
         // 等待下载完成
         await UniTask.WaitUntil(() => downloader.IsDone);
-        var rawDownloader = (ResourceDownloaderOperation)_machine.GetBlackboardValue("RawDownloader");
-        rawDownloader.OnDownloadErrorCallback = PatchEventDefine.WebFileDownloadFailed.SendEventMessage;
-        rawDownloader.OnDownloadProgressCallback = PatchEventDefine.DownloadProgressUpdate.SendEventMessage;
-        rawDownloader.BeginDownload();
-        // 等待下载完成
-        await UniTask.WaitUntil(() => rawDownloader.IsDone);
 
         // 检测下载结果
-        if (downloader.Status != EOperationStatus.Succeed || rawDownloader.Status != EOperationStatus.Succeed)
+        if (downloader.Status != EOperationStatus.Succeed)
             return;
 
         _machine.ChangeState<FsmDownloadPackageOver>();

@@ -50,7 +50,6 @@ public class PatchOperation : GameAsyncOperation
         }
 #endif
         _machine.SetBlackboardValue("DefaultPackageName", hotUpdateConfig.defaultPackageName);
-        _machine.SetBlackboardValue("RawPackageName", hotUpdateConfig.rawPackageName);
         _machine.SetBlackboardValue("PlayMode", playMode);
         _machine.SetBlackboardValue("HostServerIP", hotUpdateConfig.hostServerIP);
         _machine.SetBlackboardValue("PackageVersion", hotUpdateConfig.packageVersion);

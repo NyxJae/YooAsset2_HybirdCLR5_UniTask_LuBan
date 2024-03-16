@@ -23,11 +23,7 @@ internal class FsmClearPackageCache : IStateNode
         var defaultPackageName = (string)_machine.GetBlackboardValue("DefaultPackageName");
         var package = YooAssets.GetPackage(defaultPackageName);
         var operation = package.ClearUnusedCacheFilesAsync();
-        var rawPackageName = (string)_machine.GetBlackboardValue("RawPackageName");
-        var rawPackage = YooAssets.GetPackage(rawPackageName);
-        var rawOperation = rawPackage.ClearUnusedCacheFilesAsync();
         operation.Completed += Operation_Completed;
-        rawOperation.Completed += Operation_Completed;
     }
 
     void IStateNode.OnUpdate()

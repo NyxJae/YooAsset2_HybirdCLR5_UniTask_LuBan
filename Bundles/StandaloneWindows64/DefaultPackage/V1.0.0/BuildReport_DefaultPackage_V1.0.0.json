@@ -2,13 +2,13 @@
     "Summary": {
         "YooVersion": "2.1.1",
         "UnityVersion": "2022.3.19f1",
-        "BuildDate": "2024/3/7 15:59:26",
-        "BuildSeconds": 4,
+        "BuildDate": "2024/3/16 14:31:00",
+        "BuildSeconds": 2,
         "BuildTarget": 19,
         "BuildMode": 0,
         "BuildPipeline": "BuiltinBuildPipeline",
         "BuildPackageName": "DefaultPackage",
-        "BuildPackageVersion": "V1.0.0",
+        "BuildPackageVersion": "v1.0.0",
         "UniqueBundleName": true,
         "EnableAddressable": true,
         "LocationToLower": false,
@@ -16,17 +16,17 @@
         "IgnoreDefaultType": true,
         "AutoCollectShaders": true,
         "EnableSharePackRule": true,
-        "EncryptionClassName": "FileStreamEncryption",
+        "EncryptionClassName": "null",
         "FileNameStyle": 0,
         "CompressOption": 2,
         "DisableWriteTypeTree": false,
         "IgnoreTypeTreeChanges": true,
-        "AssetFileTotalCount": 2,
-        "MainAssetTotalCount": 2,
-        "AllBundleTotalCount": 1,
-        "AllBundleTotalSize": 2601,
-        "EncryptedBundleTotalCount": 1,
-        "EncryptedBundleTotalSize": 2601
+        "AssetFileTotalCount": 5,
+        "MainAssetTotalCount": 5,
+        "AllBundleTotalCount": 3,
+        "AllBundleTotalSize": 900337,
+        "EncryptedBundleTotalCount": 0,
+        "EncryptedBundleTotalSize": 0
     },
     "AssetInfos": [
         {
@@ -46,21 +46,75 @@
             "MainBundleName": "defaultpackage_assets_hotupdateassets_prefabs_testtools.bundle",
             "MainBundleSize": 2601,
             "DependAssets": []
+        },
+        {
+            "Address": "mscorlib.dll",
+            "AssetPath": "Assets/HotUpdateAssets/AssembliesPostIl2CppStrip/mscorlib.dll.bytes",
+            "AssetGUID": "0e21d2b8905f7594a87035b2524bb579",
+            "AssetTags": [],
+            "MainBundleName": "defaultpackage_assets_hotupdateassets_assembliespostil2cppstrip.bundle",
+            "MainBundleSize": 892969,
+            "DependAssets": []
+        },
+        {
+            "Address": "Assembly-CSharp.dll",
+            "AssetPath": "Assets/HotUpdateAssets/HotUpdateDlls/Assembly-CSharp.dll.bytes",
+            "AssetGUID": "d7fb875e3d0b9c748a817fe8f8abaf76",
+            "AssetTags": [],
+            "MainBundleName": "defaultpackage_assets_hotupdateassets_hotupdatedlls.bundle",
+            "MainBundleSize": 4767,
+            "DependAssets": []
+        },
+        {
+            "Address": "HotUpdate.dll",
+            "AssetPath": "Assets/HotUpdateAssets/HotUpdateDlls/HotUpdate.dll.bytes",
+            "AssetGUID": "f187d6be5d631134684de7ebf0c834a6",
+            "AssetTags": [],
+            "MainBundleName": "defaultpackage_assets_hotupdateassets_hotupdatedlls.bundle",
+            "MainBundleSize": 4767,
+            "DependAssets": []
         }
     ],
     "BundleInfos": [
         {
             "BundleName": "defaultpackage_assets_hotupdateassets_prefabs_testtools.bundle",
-            "FileName": "6d44da3de1ad3180cf0b66cefdd3ae71.bundle",
-            "FileHash": "6d44da3de1ad3180cf0b66cefdd3ae71",
-            "FileCRC": "e3e406c4",
+            "FileName": "dae0654ef89e13abc048407fe3339113.bundle",
+            "FileHash": "dae0654ef89e13abc048407fe3339113",
+            "FileCRC": "070ea319",
             "FileSize": 2601,
-            "Encrypted": true,
+            "Encrypted": false,
             "Tags": [],
             "DependBundles": [],
             "AllBuiltinAssets": [
                 "Assets/HotUpdateAssets/Prefabs/TestTools/PrefabShowLogToScreen.prefab",
                 "Assets/HotUpdateAssets/Prefabs/TestTools/TestObj.prefab"
+            ]
+        },
+        {
+            "BundleName": "defaultpackage_assets_hotupdateassets_assembliespostil2cppstrip.bundle",
+            "FileName": "9dfa4949f9491804f5df64fc852236e4.bundle",
+            "FileHash": "9dfa4949f9491804f5df64fc852236e4",
+            "FileCRC": "2b06015a",
+            "FileSize": 892969,
+            "Encrypted": false,
+            "Tags": [],
+            "DependBundles": [],
+            "AllBuiltinAssets": [
+                "Assets/HotUpdateAssets/AssembliesPostIl2CppStrip/mscorlib.dll.bytes"
+            ]
+        },
+        {
+            "BundleName": "defaultpackage_assets_hotupdateassets_hotupdatedlls.bundle",
+            "FileName": "d927d4676ab8ba249145cf855f2f90eb.bundle",
+            "FileHash": "d927d4676ab8ba249145cf855f2f90eb",
+            "FileCRC": "b4a7be64",
+            "FileSize": 4767,
+            "Encrypted": false,
+            "Tags": [],
+            "DependBundles": [],
+            "AllBuiltinAssets": [
+                "Assets/HotUpdateAssets/HotUpdateDlls/Assembly-CSharp.dll.bytes",
+                "Assets/HotUpdateAssets/HotUpdateDlls/HotUpdate.dll.bytes"
             ]
         }
     ],

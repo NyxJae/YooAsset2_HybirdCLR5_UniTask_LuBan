@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: HotUpdateConfig
   m_EditorClassIdentifier: 
   defaultPackageName: DefaultPackage
-  rawPackageName: RawFilePackage
-  playMode: 0
+  playMode: 2
   hostServerIP: http://192.168.0.4/
   packageVersion: v1.0.0
   patchedAOTAssemblyList:

@@ -1,7 +1,13 @@
 ManifestFileVersion: 0
-CRC: 1093671077
+CRC: 3588940029
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
       Name: defaultpackage_assets_hotupdateassets_prefabs_testtools.bundle
+      Dependencies: {}
+    Info_1:
+      Name: defaultpackage_assets_hotupdateassets_assembliespostil2cppstrip.bundle
+      Dependencies: {}
+    Info_2:
+      Name: defaultpackage_assets_hotupdateassets_hotupdatedlls.bundle
       Dependencies: {}

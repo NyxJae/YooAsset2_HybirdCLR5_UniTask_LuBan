@@ -39,15 +39,12 @@ public class FsmHotUpdateDLLs : IStateNode
         var hotUpdateConfig = Resources.Load<HotUpdateConfig>("HotUpdateConfig");
         var aotMetaAssemblyFiles = hotUpdateConfig.patchedAOTAssemblyList;
         var hotUpdateDlls = hotUpdateConfig.hotUpdateDlls;
-        var packageName = _machine.GetBlackboardValue("RawPackageName") as string;
-        var package = YooAssets.TryGetPackage(packageName);
-        if (package == null) Debug.Log("包获取失败");
         // 先补充元数据
         foreach (var aotDllName in aotMetaAssemblyFiles)
         {
-            var handle = package.LoadRawFileAsync(aotDllName);
+            AssetHandle handle = YooAssets.LoadAssetAsync(aotDllName);
             await handle.ToUniTask();
-            var dllBytes = handle.GetRawFileData();
+            byte[] dllBytes = ((TextAsset)handle.AssetObject).bytes;
             if (dllBytes == null) continue;
             var err = RuntimeApi.LoadMetadataForAOTAssembly(dllBytes, HomologousImageMode.SuperSet);
             Debug.Log($"加载 AOT 程序集的元数据:{aotDllName}. ret:{err}");
@@ -56,7 +53,7 @@ public class FsmHotUpdateDLLs : IStateNode
         // 再加载热更新程序集
         foreach (var hotUpdateDllName in hotUpdateDlls)
         {
-            var dataHandle = package.LoadRawFileAsync(hotUpdateDllName);
+            var dataHandle = YooAssets.LoadAssetAsync(hotUpdateDllName);
             await dataHandle.ToUniTask();
             if (dataHandle.Status != EOperationStatus.Succeed)
             {
@@ -64,7 +61,7 @@ public class FsmHotUpdateDLLs : IStateNode
                 return;
             }
 
-            var dllData = dataHandle.GetRawFileData();
+            var dllData = ((TextAsset)dataHandle.AssetObject).bytes;
             if (dllData == null)
             {
                 Debug.Log("获取Dll数据失败");

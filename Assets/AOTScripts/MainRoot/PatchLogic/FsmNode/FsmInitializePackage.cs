@@ -38,7 +38,6 @@ internal class FsmInitializePackage : IStateNode
     {
         var playMode = (EPlayMode)_machine.GetBlackboardValue("PlayMode");
         var defaultPackageName = (string)_machine.GetBlackboardValue("DefaultPackageName");
-        var rawPackageName = (string)_machine.GetBlackboardValue("RawPackageName");
         // 初始化YooAssets资源管理系统
         YooAssets.Initialize();
         // 创建默认资源包裹类
@@ -47,13 +46,8 @@ internal class FsmInitializePackage : IStateNode
             defaultPackage = YooAssets.CreatePackage(defaultPackageName);
         // 设置默认资源包裹类
         YooAssets.SetDefaultPackage(defaultPackage);
-        // 创建原始资源包裹类
-        var rawPackage = YooAssets.TryGetPackage(rawPackageName);
-        if (rawPackage == null)
-            rawPackage = YooAssets.CreatePackage(rawPackageName);
 
         InitializationOperation defaultinitializationOperation = null;
-        InitializationOperation rawinitializationOperation = null;
         // 编辑器下的模拟模式
         if (playMode == EPlayMode.EditorSimulateMode)
         {
@@ -61,12 +55,7 @@ internal class FsmInitializePackage : IStateNode
             defaultCreateParameters.SimulateManifestFilePath =
                 EditorSimulateModeHelper.SimulateBuild(EDefaultBuildPipeline.BuiltinBuildPipeline.ToString(),
                     defaultPackageName);
-            var rawCreateParameters = new EditorSimulateModeParameters();
-            rawCreateParameters.SimulateManifestFilePath =
-                EditorSimulateModeHelper.SimulateBuild(EDefaultBuildPipeline.RawFileBuildPipeline.ToString(),
-                    rawPackageName);
             defaultinitializationOperation = defaultPackage.InitializeAsync(defaultCreateParameters);
-            rawinitializationOperation = rawPackage.InitializeAsync(rawCreateParameters);
         }
 
         // 单机运行模式
@@ -75,7 +64,6 @@ internal class FsmInitializePackage : IStateNode
             var createParameters = new OfflinePlayModeParameters();
             createParameters.DecryptionServices = new FileStreamDecryption();
             defaultinitializationOperation = defaultPackage.InitializeAsync(createParameters);
-            rawinitializationOperation = rawPackage.InitializeAsync(createParameters);
         }
 
         // 联机运行模式
@@ -88,7 +76,6 @@ internal class FsmInitializePackage : IStateNode
             createParameters.BuildinQueryServices = new GameQueryServices();
             createParameters.RemoteServices = new RemoteServices(defaultHostServer, fallbackHostServer);
             defaultinitializationOperation = defaultPackage.InitializeAsync(createParameters);
-            rawinitializationOperation = rawPackage.InitializeAsync(createParameters);
         }
 
         // WebGL运行模式
@@ -107,17 +94,11 @@ internal class FsmInitializePackage : IStateNode
 
         // 等待异步初始化操作完成
         await UniTask.WaitUntil(() => defaultinitializationOperation.IsDone);
-        await UniTask.WaitUntil(() => rawinitializationOperation.IsDone);
 
         // 如果初始化失败弹出提示界面
         if (defaultinitializationOperation.Status != EOperationStatus.Succeed)
         {
             Debug.LogWarning($"{defaultinitializationOperation.Error}");
-            PatchEventDefine.InitializeFailed.SendEventMessage();
-        }
-        else if (rawinitializationOperation.Status != EOperationStatus.Succeed)
-        {
-            Debug.LogWarning($"{rawinitializationOperation.Error}");
             PatchEventDefine.InitializeFailed.SendEventMessage();
         }
         else
