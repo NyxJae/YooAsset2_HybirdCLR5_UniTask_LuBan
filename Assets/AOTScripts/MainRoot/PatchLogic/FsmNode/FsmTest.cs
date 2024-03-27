@@ -18,7 +18,6 @@ public class FsmTest : IStateNode
 
     public void OnEnter()
     {
-        Debug.Log("测试节点进入");
         Test().Forget();
     }
 

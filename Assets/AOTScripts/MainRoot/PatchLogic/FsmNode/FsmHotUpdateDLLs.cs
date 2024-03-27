@@ -35,6 +35,8 @@ public class FsmHotUpdateDLLs : IStateNode
     // 热更新 补充元数据和加载热更新程序集
     private async UniTask HotUpdate()
     {
+        //  如果是编辑器模式，则不用热更新
+#if !UNITY_EDITOR
         // 从resource中读取配置
         var hotUpdateConfig = Resources.Load<HotUpdateConfig>("HotUpdateConfig");
         var aotMetaAssemblyFiles = hotUpdateConfig.patchedAOTAssemblyList;
@@ -42,12 +44,21 @@ public class FsmHotUpdateDLLs : IStateNode
         // 先补充元数据
         foreach (var aotDllName in aotMetaAssemblyFiles)
         {
+            // 使用给定的名称异步加载资产以初始化AssetHandle对象
             AssetHandle handle = YooAssets.LoadAssetAsync(aotDllName);
+
+            // 等待资产加载操作完成
             await handle.ToUniTask();
+
+            // 从加载的资产中检索字节数组，假设它是一个TextAsset
             byte[] dllBytes = ((TextAsset)handle.AssetObject).bytes;
+
+            // 如果字节数组为null，则跳过当前循环的迭代
             if (dllBytes == null) continue;
+
+            // 使用字节数组加载AOT程序集的元数据
+            // HomologousImageMode.SuperSet参数表示元数据图像是运行时图像的超集
             var err = RuntimeApi.LoadMetadataForAOTAssembly(dllBytes, HomologousImageMode.SuperSet);
-            Debug.Log($"加载 AOT 程序集的元数据:{aotDllName}. ret:{err}");
         }
 
         // 再加载热更新程序集
@@ -69,9 +80,10 @@ public class FsmHotUpdateDLLs : IStateNode
             }
 
             var assembly = Assembly.Load(dllData);
-            Debug.Log($"加载热更新Dll:{hotUpdateDllName}");
         }
 
+        Debug.Log("代码热更新完成");
+# endif
         // 如果是测试模式，切换到测试节点
         if ((bool)_machine.GetBlackboardValue("IsTest"))
             _machine.ChangeState<FsmTest>();

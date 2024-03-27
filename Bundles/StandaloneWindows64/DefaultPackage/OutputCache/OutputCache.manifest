@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 3588940029
+CRC: 510447941
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -10,4 +10,7 @@ AssetBundleManifest:
       Dependencies: {}
     Info_2:
       Name: defaultpackage_assets_hotupdateassets_hotupdatedlls.bundle
+      Dependencies: {}
+    Info_3:
+      Name: defaultpackage_assets_hotupdateassets_json.bundle
       Dependencies: {}

@@ -5,7 +5,14 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "67c487f521087a3887e6c8817dff3cd264aa4f20"
+      "hash": "6c679cc3ab76197f557791c51922603a5d9716b1"
+    },
+    "com.code-philosophy.luban": {
+      "version": "https://github.com/focus-creative-games/luban_unity.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "de0348c453844f91d52e736be681f0713ae47201"
     },
     "com.tuyoogame.yooasset": {
       "version": "2.1.1",
@@ -44,7 +51,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.rider": {
-      "version": "3.0.27",
+      "version": "3.0.28",
       "depth": 0,
       "source": "registry",
       "dependencies": {
