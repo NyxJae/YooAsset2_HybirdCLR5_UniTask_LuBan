@@ -19,17 +19,17 @@ namespace NFramework
     /// </summary>
     public class MainRoot : MonoBehaviour
     {
-        /// <summary>
-        ///     是否打开测试节点,用以测试资源更新和代码热更新
-        /// </summary>
-        [SerializeField] [Header("是否打开测试节点")] public bool isTest = false;
-
         private async void Start()
         {
             // 开始更新资源流程
-            var operation = new PatchOperation(isTest);
+            var operation = new PatchOperation();
             YooAssets.StartOperation(operation);
             await operation;
+            // 以下写GamePlay入口逻辑
+            Debug.Log("资源更新完毕,加载入口场景");
+            var TestObj = YooAssets.LoadAssetSync<GameObject>("TestTools_TestObj");
+            await TestObj.ToUniTask();
+            var obj = TestObj.InstantiateAsync();
         }
     }
 }

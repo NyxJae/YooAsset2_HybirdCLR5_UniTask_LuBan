@@ -15,7 +15,7 @@ public class PatchOperation : GameAsyncOperation
     private readonly StateMachine _machine;
     private ESteps _steps = ESteps.None;
 
-    public PatchOperation(bool isTest)
+    public PatchOperation()
     {
         // 注册监听事件
         _eventGroup.AddListener<UserEventDefine.UserTryInitialize>(OnHandleEventMessage);
@@ -33,7 +33,6 @@ public class PatchOperation : GameAsyncOperation
         _machine.AddNode<FsmDownloadPackageFiles>();
         _machine.AddNode<FsmDownloadPackageOver>();
         _machine.AddNode<FsmHotUpdateDLLs>();
-        _machine.AddNode<FsmTest>();
         _machine.AddNode<FsmClearPackageCache>();
         _machine.AddNode<FsmUpdaterDone>();
 
@@ -53,7 +52,6 @@ public class PatchOperation : GameAsyncOperation
         _machine.SetBlackboardValue("PlayMode", playMode);
         _machine.SetBlackboardValue("HostServerIP", hotUpdateConfig.hostServerIP);
         _machine.SetBlackboardValue("PackageVersion", hotUpdateConfig.packageVersion);
-        _machine.SetBlackboardValue("IsTest", isTest);
     }
 
     protected override void OnStart()

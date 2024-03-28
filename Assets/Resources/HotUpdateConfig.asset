@@ -15,7 +15,7 @@ MonoBehaviour:
   defaultPackageName: DefaultPackage
   playMode: 2
   hostServerIP: http://192.168.0.4/
-  packageVersion: v1.0.0
+  packageVersion: NFrameworkV1.0.0
   patchedAOTAssemblyList:
   - mscorlib.dll
   hotUpdateDlls:
