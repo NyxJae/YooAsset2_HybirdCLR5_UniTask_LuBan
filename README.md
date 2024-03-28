@@ -13,6 +13,7 @@
 - [HotUpdateConfig.asset](Assets/Resources/HotUpdateConfig.asset) 热更新配置
 - [AOTGenericReferences.cs](Assets/HybridCLRGenerate/AOTGenericReferences.cs) 补元DLL列表
 - [FsmInitializePackage.cs](Assets/AOTScripts/MainRoot/PatchLogic/FsmNode/FsmInitializePackage.cs) 热更新初始化服务器地址与解密配置
-- [Test.cs](Assets%2FHotUpdateScripts%2FTestTools%2FTest.cs)测试代码
+- [MainRoot.cs](Assets%2FAOTScripts%2FMainRoot%2FMainRoot.cs) gamePlay入口逻辑
+- [Test.cs](Assets%2FHotUpdateScripts%2FTestTools%2FTest.cs) 测试代码
 - [DataTables/Datas](DataTables/Datas) 配置表存放位置
 - [DataTables/gen.bat](DataTables/gen.bat) 每次修改配置表后运行此脚本生成配置表代码

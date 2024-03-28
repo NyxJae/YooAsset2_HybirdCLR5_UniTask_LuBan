@@ -35,8 +35,6 @@ public class FsmHotUpdateDLLs : IStateNode
     // 热更新 补充元数据和加载热更新程序集
     private async UniTask HotUpdate()
     {
-        //  如果是编辑器模式，则不用热更新
-#if !UNITY_EDITOR
         // 从resource中读取配置
         var hotUpdateConfig = Resources.Load<HotUpdateConfig>("HotUpdateConfig");
         var aotMetaAssemblyFiles = hotUpdateConfig.patchedAOTAssemblyList;
@@ -83,11 +81,6 @@ public class FsmHotUpdateDLLs : IStateNode
         }
 
         Debug.Log("代码热更新完成");
-# endif
-        // 如果是测试模式，切换到测试节点
-        if ((bool)_machine.GetBlackboardValue("IsTest"))
-            _machine.ChangeState<FsmTest>();
-        else
-            _machine.ChangeState<FsmClearPackageCache>();
+        _machine.ChangeState<FsmClearPackageCache>();
     }
 }
