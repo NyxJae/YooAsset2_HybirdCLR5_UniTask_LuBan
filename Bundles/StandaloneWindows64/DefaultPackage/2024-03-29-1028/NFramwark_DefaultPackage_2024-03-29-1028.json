@@ -1,0 +1,110 @@
+{
+    "FileVersion": "2.0.0",
+    "EnableAddressable": true,
+    "LocationToLower": false,
+    "IncludeAssetGUID": false,
+    "OutputNameStyle": 0,
+    "BuildPipeline": "BuiltinBuildPipeline",
+    "PackageName": "DefaultPackage",
+    "PackageVersion": "2024-03-29-1028",
+    "AssetList": [
+        {
+            "Address": "TestTools_PrefabShowLogToScreen",
+            "AssetPath": "Assets/HotUpdateAssets/Prefabs/TestTools/PrefabShowLogToScreen.prefab",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 0
+        },
+        {
+            "Address": "TestTools_TestObj",
+            "AssetPath": "Assets/HotUpdateAssets/Prefabs/TestTools/TestObj.prefab",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 0
+        },
+        {
+            "Address": "Luban.Runtime.dll",
+            "AssetPath": "Assets/HotUpdateAssets/AssembliesPostIl2CppStrip/Luban.Runtime.dll.bytes",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 1
+        },
+        {
+            "Address": "mscorlib.dll",
+            "AssetPath": "Assets/HotUpdateAssets/AssembliesPostIl2CppStrip/mscorlib.dll.bytes",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 1
+        },
+        {
+            "Address": "Assembly-CSharp.dll",
+            "AssetPath": "Assets/HotUpdateAssets/HotUpdateDlls/Assembly-CSharp.dll.bytes",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 2
+        },
+        {
+            "Address": "HotUpdate.dll",
+            "AssetPath": "Assets/HotUpdateAssets/HotUpdateDlls/HotUpdate.dll.bytes",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 2
+        },
+        {
+            "Address": "demo_tbreward",
+            "AssetPath": "Assets/HotUpdateAssets/Json/demo_tbreward.json",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 3
+        },
+        {
+            "Address": "item_tbitem",
+            "AssetPath": "Assets/HotUpdateAssets/Json/item_tbitem.json",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 3
+        }
+    ],
+    "BundleList": [
+        {
+            "BundleName": "defaultpackage_assets_hotupdateassets_prefabs_testtools.bundle",
+            "UnityCRC": 2939438575,
+            "FileHash": "dae0654ef89e13abc048407fe3339113",
+            "FileCRC": "070ea319",
+            "FileSize": 2601,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": []
+        },
+        {
+            "BundleName": "defaultpackage_assets_hotupdateassets_assembliespostil2cppstrip.bundle",
+            "UnityCRC": 3579442282,
+            "FileHash": "4b4e8157a7758149c39f7443785e746a",
+            "FileCRC": "e75ea76d",
+            "FileSize": 935478,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": []
+        },
+        {
+            "BundleName": "defaultpackage_assets_hotupdateassets_hotupdatedlls.bundle",
+            "UnityCRC": 4200413484,
+            "FileHash": "c82bcd7056fc6c90624c8e355fb4fd79",
+            "FileCRC": "71bb1826",
+            "FileSize": 8997,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": []
+        },
+        {
+            "BundleName": "defaultpackage_assets_hotupdateassets_json.bundle",
+            "UnityCRC": 1381113398,
+            "FileHash": "81090d1a6fe7896575745873651d7d00",
+            "FileCRC": "8c19514e",
+            "FileSize": 2080,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": []
+        }
+    ]
+}
