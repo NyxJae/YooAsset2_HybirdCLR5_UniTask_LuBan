@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Editor
 {
-    public class EditorMenuExtensions
+    public partial class NFrameworkTools
     {
         /// <summary>
         /// 热更新配置文件
@@ -13,7 +13,7 @@ namespace Editor
         private static HotUpdateConfig _hotUpdateConfig;
 
         // 在Unity编辑器的菜单栏添加"MoveDlls/MoveDll"菜单项
-        [MenuItem("MoveDlls/MoveDlls")]
+        [MenuItem("NFramwarkTools/MoveDlls")]
         private static void MoveDlls()
         {
             // 加载HotUpdateConfig配置
